@@ -60,7 +60,7 @@ echo '</br>';
 echo "<hr>";
 //15
 function calculator($a,$b,$operator){
-if($operator=='/' && $a=='0' || $b=='0'){
+if($operator=='/' &&  $b=='0'){
 die("Делить на ноль нельзя") ;
 }
 switch ($operator) {
