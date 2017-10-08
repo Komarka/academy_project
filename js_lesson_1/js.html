@@ -1,41 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+    <title></title>
 </head>
 <body>
 </body>
 <script type="text/javascript">
-	function factorial(n){
-		if (n==1) {
-			return n;
-		}
-		return n * factorial(n-1);
-	}
-	function fib(n){
-		if (n<=1) {
-			return n;
-		}
-		return fib(n-1) + fib(n-2);
-	}
-	function table(n) {
+    function factorial(n) {
+        if (n == 1) {
+            return n;
+        }
+        return n * factorial(n - 1);
+    }
+    function fib(n) {
+        if (n <= 1) {
+            return n;
+        }
+        return fib(n - 1) + fib(n - 2);
+    }
+    function table(n) {
 
-document.write("<table border= \" 1 \" cellspacing= \" 0 \" cellpadding= \"2 \"align= \"center \" >")
+        document.write("<table border= \" 1 \" cellspacing= \" 0 \" cellpadding= \"2 \"align= \"center \" >")
 
-for (var i = 1; i <= n; i++)
-{
-	document.write("<tr>");
+        for (var i = 1; i <= n; i++) {
+            document.write("<tr>");
 
-   for (var j = 1; j <= n; j++)
-    {
-    	document.write("<td>" + j + "&times;" + i + "=" + (i * j) + "</td>")}
-document.write("</tr>")
-}
-document.write("</table>")
-}
-table(5);
-
-
+            for (var j = 1; j <= n; j++) {
+                document.write("<td>" + j + "&times;" + i + "=" + (i * j) + "</td>")
+            }
+            document.write("</tr>")
+        }
+        document.write("</table>")
+    }
+    table(5);
 
 
 </script>
