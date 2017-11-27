@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	function getTheLastNum(num){
+var result= (typeof( num ) === 'string') ? num :  String(num);
+var arr=result.split('');
+var last=arr[arr.length-1]+'';
+switch (last) {
+  case '1':
+    alert( 'One' );
+    break;
+  case '2':
+    alert( 'two' );
+    break;
+  case '3':
+    alert( 'three' );
+    break;
+    case '4':
+    alert( 'four' );
+    break;
+    case '5':
+    alert( 'five' );
+    break;
+    case '6':
+    alert( 'six' );
+    break;
+    case '7':
+    alert( 'seven' );
+    break;
+    case '8':
+    alert( 'eight' );
+    break;
+    case '9':
+    alert( 'nine' );
+    break;
+    case '0':
+    alert( 'zero' );
+    break;
+  default:
+    alert( 'Я таких значений не знаю' );
+}
+}
+//getTheLastNum(359);
+
+function reverseOrder(value){
+	var result= (typeof( value ) === 'string') ? value :  String(value);
+ alert(result.split('').reverse().join(''));
+}
+
+//reverseOrder('bara');
+
+var o={'name':'sasha'};
+var b={'age':9};
+function uniteObj(a,b){
+if(a instanceof Object && b instanceof Object){
+	var result=Object.assign(a,b);
+}
+return result;
+}
+
+var Lera={firstName:'Lera',secondName:'Ivashina',age:48};
+var Vasya={firstName:'Vasya',secondName:'Levin',age:25};
+var Anrey={firstName:'Anrey',secondName:'Robin',age:29};
+var people=[Lera,Vasya,Anrey];
+function theYoungest(array){
+	if(Array.isArray(array)){
+		var result=array.sort(function(a,b){
+			 return a.age-b.age;
+		});
+	var youngest=result[0].firstName +' '+result[0].secondName;
+	}
+	alert(youngest);
+}
+//theYoungest(people);
+
+
+var array=['Jack','Mike','Michael','Johnson','Linda','Lark'];
+function letterGroup(value){
+	var obj={};
+	array.forEach(function(item,pos){
+		
+		var letter=item.charAt(0);
+		obj[letter]+=' '+item+' ';
+
+		
+	})
+	for(key in obj){
+		obj[key]=obj[key].split(' ');
+		obj[key].splice(0,1);
+
+		alert(key + ' : '+ obj[key]);
+	}
+}
+letterGroup(array); 
+
+function Product(type){
+	this.type=type;
+	this.getModels=function(){
+		switch (this.type) {
+  case 'telephone':
+    return ['Nokia','Samsung','iPhone'].join(' ');
+    break;
+  case 'Notebook':
+    return ['Mac','Intel'].join(' ');
+    break;
+  case 'Game':
+    return ['Battlefield 1','Witcher 3','Wolfenstein:the New Order'].join(' ');
+    break;
+  default:
+    alert( 'Таких типов товара у нас в магазине нет' );
+}
+
+
+	}
+
+}
+var tel=new Product('telephone');
+//alert(tel.getModels());
+//не до конца   понял задание
+
+function Player(options){
+	this.buttons=options.buttons || 4;
+	this.material=options.material || 'plastic';
+	this.brand=options.brand || 'LG';
+	this.size=5;
+	switch (options.type) {
+  case 'desktop':
+    this.size=1;
+    break;
+  case 'laptop':
+    this.size=2;
+    break;
+  case 'tablet':
+  this.size=3;
+    break;
+    case 'mobile':
+  this.size=4;
+    break;
+}
+
+</script>
+</body>
+</html>
