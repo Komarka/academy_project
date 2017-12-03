@@ -1,0 +1,25 @@
+<?php
+class Validation
+{
+	private static $name;
+	private static $comment;
+	private static $checked=[];
+	public static function validate($post){
+		if(ctype_digit($post['name'])){
+			throw new Exception("Name should contains only letters");
+
+		}elseif (empty($post['name'])||empty($post['comment'])) {
+			throw new Exception("Both fields should be filled");
+		}
+		else{
+self::$name=trim(stripcslashes(strip_tags(htmlspecialchars($post['name']))));
+self::$comment=trim(stripcslashes(strip_tags(htmlspecialchars($post['comment']))));
+array_push(self::$checked, self::$name);
+array_push(self::$checked, self::$comment);	
+return self::$checked;
+}
+
+
+	}
+}
+?>

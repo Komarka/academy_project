@@ -1,0 +1,12 @@
+<?php
+class Router
+{
+	static protected $current_dir;
+	
+	public static function render($rout='main.php'){
+self::$current_dir=getcwd().'\\'.$rout;
+require_once self::$current_dir;
+	}
+}
+Router::render();
+?>

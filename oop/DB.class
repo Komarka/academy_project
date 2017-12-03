@@ -1,0 +1,56 @@
+<?php
+class DB
+{
+	private $_connection;
+	private static $_instance;
+	private $_host = "localhost";
+	 private $_username = "mysql";
+	  private $_password = "mysql";
+	  private $_database = "test";
+
+	public static function getInstance() {
+		if(!self::$_instance) { 
+			self::$_instance = new self();
+		}
+		return self::$_instance;
+	}
+	
+	private function __construct() {
+		$this->_connection = new mysqli($this->_host, $this->_username, 
+			$this->_password, $this->_database);
+	
+		
+		if(mysqli_connect_error()) {
+			trigger_error("Failed to conencto to MySQL: " . mysqli_connect_error(),
+				 E_USER_ERROR);
+		}
+	}
+	private function __clone() { }
+
+	
+	public function query($sql){
+		 return $this->_connection->query($sql);
+	}
+	public function insert($sql_arr){
+		if(is_array($sql_arr)){
+			list($name,$comment)=$sql_arr;
+			$res=$this->query("INSERT INTO comment_system (name,comment)
+VALUES ('$name', '$comment')");
+			return $res;
+		}
+	}
+	public function last_id(){
+		return $this->_connection->insert_id;
+	}
+	public function select(){
+		$res="SELECT * FROM comment_system";
+		return $this->query($res);
+	}
+	public function delete($id){
+		$id=(int)$id;
+		$res="DELETE  FROM comment_system WHERE id='$id' ";
+		return $this->query($res);
+	}
+	
+}
+?>
